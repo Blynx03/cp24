@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-page {
+    width: 100vw;
+    height: 100vh;
+    background: rgb(227, 227, 222);
+    display: grid;
+    grid-template-columns: 65% 35%;
+    grid-template-rows: 28.3% 29.7% 4.6% 28.4% 5% 4%; 
+    grid-template-areas: 'stream date-temp'
+                        'stream chat'
+                        'ad chat'
+                        'ad news'
+                        'event event'
+                        'rate rate';
+}
+
+.main-page > div {
+    border-width: 3px;
+    border-style: solid;
+    border-image: linear-gradient(to bottom, black 0, black 1%, gray 5%, white 10%, white 90%, lightgray, white) 1;
+    width: 100%;
+    height: 100%;
+}
+.stream-container {
+    background: rgb(59, 57, 57);
+    color: white;
+    grid-area: stream;
+    border-top: 0;
+    border-left: 0;
+}
+
+.date-temp-container {
+    background-color: blueviolet;
+    grid-area: date-temp;
+}
+
+.ad-container {
+    background-color: rgb(133, 180, 234);
+    grid-area: ad;
+}
+
+.chat-container {
+    background-color: rgb(241, 241, 229);
+    grid-area: chat;
+}
+
+.news-container {
+    grid-area: news;
+}
+
+.event-container {
+    background-color: lightblue;
+    grid-area: event;
+}
+
+.rate-container {
+    background-color: lightblue;
+    grid-area: rate;
+}
