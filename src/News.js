@@ -8,9 +8,6 @@ const News = ({country, localNewsHeadline, setLocalNewsHeadline}) => {
   const addClass = 'news-headline news-font-size'
   let { weather, news } = token;
   
-  // News API 
-  // const newsApiKey = '5b414a61e86a4792b7738ad0c20385aa'
-  
   const countryCode = [
       {
         country: 'Argentina',

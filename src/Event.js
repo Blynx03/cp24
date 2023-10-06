@@ -6,13 +6,13 @@ const Event = ({localNewsHeadline}) => {
 
   useEffect(() => {
     const allLocalHeadlines = [];
-    if (localNewsHeadline.length !== 0) {
+    if (localNewsHeadline.length <= 10) {
       //localNewsHeadline.articles.forEach((news, index) => {  ---- this is the original code without the hard coded articles in "NewsBrowser" was added
       // the following line is the edited one to make the program work.
       localNewsHeadline.forEach((news, index) => {
         allLocalHeadlines.push(
           <>
-            <span className='local-news' key={index}>{news.title}</span>
+            <span className='local-news' key={index}>{news}</span>
             <span className='event-news-bullet'> ● </span>
           </>
         )

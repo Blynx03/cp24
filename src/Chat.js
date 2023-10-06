@@ -247,8 +247,8 @@ const Chat = () => {
         {chatData.map(({user, chat}, index) =>
           (
             <>
-              <div className='user-chat-container'>
-                <div className='user' style={{color: index % 2 === 0 ? 'tomato' : 'cornflowerblue'}} key={index}>{user}:</div>
+              <div className='user-chat-container' key={index+10}>
+                <div className='user' style={{color: index % 2 === 0 ? 'tomato' : 'cornflowerblue'}} >{user}:</div>
                 <span className='chat-span'>{chat}</span>
               </div>
             </>

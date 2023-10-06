@@ -361,9 +361,18 @@ const NewsBrowser = ({country, localNewsHeadline, setLocalNewsHeadline}) => {
       
   }
 
+  // Added for local news headline which is the same as all the articles title
+  function getLocalNews(articles) {
+    let localNews = [];
+    articles.forEach((article) => {
+        localNews.push(article.title);
+    })
+    setLocalNewsHeadline(localNews);
+  }
+
   useEffect(() => {
-    runNews(articles)
-    setLocalNewsHeadline(articles)
+    runNews(articles);
+    getLocalNews(articles);
   },[])
 
 

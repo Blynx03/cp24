@@ -25,7 +25,7 @@
 
 
 .all-event-news-container {
-    animation: run-local-news 150s linear infinite;
+    animation: run-local-news 120s linear infinite;
     white-space: nowrap;
 }
 
@@ -45,5 +45,5 @@
  
 @keyframes run-local-news {
     0% { margin-left: 0 }
-    100% { margin-left: -1500% }
+    100% { margin-left: -750% }
 }
