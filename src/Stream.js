@@ -22,7 +22,7 @@ const Stream = () => {
   return (
     <div className='stream-container'>
         <YouTube className='visual-container' onClick={playYt} videoId='U1tkEfIwJhU' ref={playRef} opts={videoOpts} />
-        <img className='stream-logo' src="/images/89dmz-logo.png" alt="DMZ logo" />
+        <img className='stream-logo' src="images/89dmz-logo.png" alt="DMZ logo" />
         {/* <div className='play-yt-btn' onClick={playYt}>PLAY</div> */}
     </div>
   )
