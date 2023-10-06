@@ -25,16 +25,19 @@ const Rate = ({country, countryLibrary}) => {
             try {
                 rateRes = await fetch(`https://data.fixer.io/api/latest?access_key=${rate}`);
                 currencyRates = await rateRes.json();
-                countryIsoCode = Object.keys(currencyRates.rates)
-                countryRate = Object.values(currencyRates.rates)
 
-                if (currencyRates.base !== baseIso) {
-                    countryIsoCode.map((iso, index) => {
-                        if (iso === baseIso) {
-                            newBaseIso = iso;
-                            newBaseRate = countryRate[index];
-                        }
-                    })
+                if (currencyRates && currencyRates.rates) {
+                    countryIsoCode = Object.keys(currencyRates.rates)
+                    countryRate = Object.values(currencyRates.rates)
+
+                    if (currencyRates.base !== baseIso) {
+                        countryIsoCode.map((iso, index) => {
+                            if (iso === baseIso) {
+                                newBaseIso = iso;
+                                newBaseRate = countryRate[index];
+                            }
+                        });
+                    }
                 }
             
                 const newCountryRates = [];
