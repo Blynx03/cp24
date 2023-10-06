@@ -11,7 +11,8 @@ const Ad = () => {
   }
 
   async function showAd() {
-    setAddImage('/images/ad-img/ad' + counter + '.png');
+//  For github to work, / in front of images is removed.     
+    setAddImage('images/ad-img/ad' + counter + '.png');
     checkWidth(counter)
     await delay(5000)
 
