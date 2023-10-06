@@ -9,6 +9,7 @@ import Rate from './Rate'
 import './home.css'
 import countryLibrary from './assets/countryLibrary'
 import token from './token'
+import NewsBrowser from './NewsBrowser'
 
 const Home = () => {
   let [ location, setLocation ] = useState('');
@@ -22,6 +23,8 @@ const Home = () => {
   const ipUrl = `https://api.weatherapi.com/v1/ip.json?key=${weather}&q=auto:ip`
 
 
+  // <News> was changed to <NewsBrowser>.  News.js is the original file but due to newsapi disallowing the request call from a browser,
+  // it only functions on local server.  So, to make this work, the articles need to be hard coded and it is located at the NewsBrowser.
   return (
     <div className='main-page'>
         <Stream />
@@ -30,7 +33,7 @@ const Home = () => {
                     location={location} 
                     setLocation={setLocation} 
                     setCountry={setCountry}/>
-        <News country={country} localNewsHeadline={localNewsHeadline} setLocalNewsHeadline={setLocalNewsHeadline} event={event}/>
+        <NewsBrowser country={country} localNewsHeadline={localNewsHeadline} setLocalNewsHeadline={setLocalNewsHeadline} event={event}/>
         <Ad />
         <Chat />
         <Event country={country} localNewsHeadline={localNewsHeadline} setLocalNewsHeadline={setLocalNewsHeadline}/>

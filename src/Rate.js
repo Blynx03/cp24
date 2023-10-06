@@ -4,7 +4,6 @@ import token from './token'
 
 const Rate = ({country, countryLibrary}) => {
     const { weather, news, rate } = token;
-    // const rateKey = 'db4f48ca3bd71239a04e9417ba1b8a81'
     let rateRes = '';
     let baseIso = '';
     let newBaseIso = '';
@@ -24,7 +23,7 @@ const Rate = ({country, countryLibrary}) => {
     useEffect(() => {
         async function fetchRateData() {
             try {
-                rateRes = await fetch(`http://data.fixer.io/api/latest?access_key=${rate}`);
+                rateRes = await fetch(`https://data.fixer.io/api/latest?access_key=${rate}`);
                 currencyRates = await rateRes.json();
                 countryIsoCode = Object.keys(currencyRates.rates)
                 countryRate = Object.values(currencyRates.rates)
