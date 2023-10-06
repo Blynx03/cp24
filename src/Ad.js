@@ -83,20 +83,23 @@ const Ad = () => {
   }
 
   useEffect(() => {
-        let scale = 1;
+        const setScale = document.querySelector('.ad-image');
         if (window.screen.width <= 1500) {
-                let setScale = document.querySelector('.ad-image');
-                switch(counter) {
-                        case 1: scale = '1.4';
-                                break;
-                        case 3: scale = '1.6';
-                                break;
-                        case 9: scale = '1.6';
-                                break;
-                        default: break;
-                }
+                let scale = counter === 1 ? 1.4 : counter === 3 ? 1.6 : counter === 9 ? 1.6 : 1
                 setScale.style.scale = scale;
-        }
+        } 
+        // if (window.screen.width <= 1500) {
+        //         let setScale = document.querySelector('.ad-image');
+        //         switch(counter) {
+        //                 case 1: scale = '1.4';
+        //                         break;
+        //                 case 3: scale = '1.6';
+        //                         break;
+        //                 case 9: scale = '1.6';
+        //                         break;
+        //                 default: break;
+        //         }
+        //              setScale.style.scale = scale;
 
   },[counter]);
  
