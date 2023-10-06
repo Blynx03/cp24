@@ -87,11 +87,11 @@ const Ad = () => {
         if (window.screen.width <= 1500) {
                 let setScale = document.querySelector('.ad-image');
                 switch(counter) {
-                        case 1: scale = '1.05';
+                        case 1: scale = '1.1';
                                 break;
-                        case 3: scale = '1.1';
+                        case 3: scale = '1.2';
                                 break;
-                        case 9: scale = '1.1';
+                        case 9: scale = '1.3';
                                 break;
                         default: break;
                 }
