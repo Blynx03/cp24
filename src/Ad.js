@@ -82,6 +82,24 @@ const Ad = () => {
     setAdWidth.style.top = top;
   }
 
+  useEffect(() => {
+        let scale = 1;
+        if (window.screen.width <= 1500) {
+                let setScale = document.querySelector('.ad-image');
+                switch(counter) {
+                        case 1: scale = '1.05';
+                                break;
+                        case 3: scale = '1.1';
+                                break;
+                        case 9: scale = '1.1';
+                                break;
+                        default: break;
+                }
+                setScale.style.scale = scale;
+        }
+
+  },[counter]);
+ 
 
   return (
     <div className='ad-container'>
