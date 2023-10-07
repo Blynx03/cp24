@@ -12,6 +12,7 @@ const Rate = ({country, countryLibrary}) => {
     let countryRate = 0;
     let [ countryRates, setCountryRates ] = useState('');
     let currencyRates = [];
+    let allRates = [];
 
     const findData = countryLibrary.find(data => data.country === country);
     if (findData) {
@@ -24,34 +25,43 @@ const Rate = ({country, countryLibrary}) => {
         async function fetchRateData() {
             try {
                 // rateRes = await fetch(`https://data.fixer.io/api/latest?access_key=${rate}`); --- for fixer.io
-                rateRes = await fetch(`https://api.exchangeratesapi.io/v1/latest?access_key=${rate}`);
+                rateRes = await fetch(`https://api.currencyapi.com/v3/latest?apikey=${rate}`);
                 currencyRates = await rateRes.json();
-                console.log(currencyRates)
+                console.log(currencyRates.data)
 
-                if (currencyRates && currencyRates.rates) {
-                    countryIsoCode = Object.keys(currencyRates.rates)
-                    countryRate = Object.values(currencyRates.rates)
-                    console.log(countryIsoCode)
-                    console.log(countryRate)
+                // if (currencyRates && currencyRates.rates) {
+                //     countryIsoCode = Object.keys(currencyRates.rates)
+                //     countryRate = Object.values(currencyRates.rates)
+                //     console.log(countryIsoCode)
+                //     console.log(countryRate)
 
-                    if (currencyRates.base !== baseIso) {
-                        countryIsoCode.map((iso, index) => {
-                            if (iso === baseIso) {
-                                newBaseIso = iso;
-                                newBaseRate = countryRate[index];
-                            }
-                        });
+                //     if (currencyRates.base !== baseIso) {
+                //         countryIsoCode.map((iso, index) => {
+                //             if (iso === baseIso) {
+                //                 newBaseIso = iso;
+                //                 newBaseRate = countryRate[index];
+                //             }
+                //         });
+                //     }
+                // }
+
+                Object.keys(currencyRates.data).forEach((isoCode) => {
+                    let { code, value } = currencyRates.data[isoCode];
+                    allRates = [...allRates, {code: code, value: value}]
+                    if (code === baseIso) {
+                        newBaseIso = code;
+                        newBaseRate = value;
                     }
-                }
+                })
+                console.log(allRates)
             
                 const newCountryRates = [];
 
-                if (countryIsoCode && countryRate) {
-                    console.log(countryIsoCode.length)
-                    countryIsoCode.forEach((iso, index) => {
-                        newCountryRates.push(<span className='iso-rate' key={index}>{iso.toUpperCase()}: {(countryRate[index]/newBaseRate).toFixed(3)}</span>);
-                    })
-                }
+                
+                allRates.forEach(({code, value}, index) => {
+                    newCountryRates.push(<span className='iso-rate' key={index}>{code.toUpperCase()}: {(value/newBaseRate).toFixed(3)}</span>);
+                })
+                
      
                 setCountryRates(newCountryRates)
 

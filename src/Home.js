@@ -3,7 +3,8 @@ import Stream from './Stream'
 import DateWeather from './DateWeather'
 import Ad from './Ad'
 import Chat from './Chat'
-// import News from './News'
+// import News from './News'myimac!
+
 import Event from './Event'
 import Rate from './Rate'
 import './home.css'
