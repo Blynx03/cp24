@@ -23,12 +23,16 @@ const Rate = ({country, countryLibrary}) => {
     useEffect(() => {
         async function fetchRateData() {
             try {
-                rateRes = await fetch(`https://data.fixer.io/api/latest?access_key=${rate}`);
+                // rateRes = await fetch(`https://data.fixer.io/api/latest?access_key=${rate}`); --- for fixer.io
+                rateRes = await fetch(`https://api.exchangeratesapi.io/v1/latest?access_key=${rate}`);
                 currencyRates = await rateRes.json();
+                console.log(currencyRates)
 
                 if (currencyRates && currencyRates.rates) {
                     countryIsoCode = Object.keys(currencyRates.rates)
                     countryRate = Object.values(currencyRates.rates)
+                    console.log(countryIsoCode)
+                    console.log(countryRate)
 
                     if (currencyRates.base !== baseIso) {
                         countryIsoCode.map((iso, index) => {

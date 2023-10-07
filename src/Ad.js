@@ -86,7 +86,7 @@ const Ad = () => {
         const setScale = document.querySelector('.ad-image');
         if (window.screen.width <= 1500) {
                 let scale = counter === 1 ? 1.4 : counter === 3 ? 1.6 : counter === 9 ? 1.6 : 1
-                setScale.style.scale = scale;
+                setScale.style.transform = `scale(${scale})`;
         } 
         // if (window.screen.width <= 1500) {
         //         let setScale = document.querySelector('.ad-image');

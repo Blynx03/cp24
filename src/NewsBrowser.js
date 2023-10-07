@@ -370,6 +370,7 @@ const NewsBrowser = ({country, localNewsHeadline, setLocalNewsHeadline}) => {
     setLocalNewsHeadline(localNews);
   }
 
+  
   useEffect(() => {
     runNews(articles);
     getLocalNews(articles);

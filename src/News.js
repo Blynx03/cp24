@@ -5,8 +5,7 @@ import token from './token'
 const News = ({country, localNewsHeadline, setLocalNewsHeadline}) => {
   let [ newsHeadline, setNewsHeadline ] = useState('')
   let stopLoop = false;
-  const addClass = 'news-headline news-font-size'
-  let { weather, news } = token;
+  let { news } = token;
   
   const countryCode = [
       {
