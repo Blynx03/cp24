@@ -53,7 +53,6 @@ const Rate = ({country, countryLibrary}) => {
                         newBaseRate = value;
                     }
                 })
-                console.log(allRates)
             
                 const newCountryRates = [];
 

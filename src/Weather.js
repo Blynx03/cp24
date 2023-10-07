@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
 const Weather = ({currentDay, weatherData}) => {
-    console.log(currentDay)
-    console.log(weatherData)
     let [ showWeather, setShowWeather ] = useState([])
     let [ weatherForecast, setWeatherForecast ] = useState([{}])
     // let date = new Date();
@@ -27,9 +25,6 @@ const Weather = ({currentDay, weatherData}) => {
     function convertToF(temp) {
         return ((temp * (9/5)) + 32);
     }
-
-    // let weatherForecast = [{}];
-
 
 
     function handleDay(i) {
